@@ -12,8 +12,7 @@ $("form input").on('change',()=>{
     amplitudeIncl: $("#amplitudeIncl").val(),
     vitessemouv: $("#vitessemouv").val()*0.5,
     color:$("#colorId").val(),
-    vitessemouv: $("#vitessemouv").val()/10,
-    color:$("#colorId").val()
+    color:$("#colorId").val(),
     schema: $("#schema").val()
   }
   console.log(userParams.vitessemouv);
@@ -55,7 +54,8 @@ let intensity={
   }
 }
 
-getIntensity =function(time,index, userParams) {
+function getIntensity(time,index, userParams) {
+  console.log(userParams.schema)
   switch(userParams.schema) {
     case "stroboscope":
       return intensity.Strobo(time, index,userParams)

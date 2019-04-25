@@ -425,6 +425,7 @@ footer p {
   align-items: center;
   justify-content: center;
   perspective: 50em;
+  top: -100px;
 }
 .map {
   height: 600px;
@@ -441,6 +442,7 @@ footer p {
 display: flex;
 flex-direction: column;
 height: 600px;
+position: relative;
 overflow: hidden;
 perspective: 50em;
 padding:0!important;

@@ -19,7 +19,7 @@
             <option value="papillon">Papillon</option>
             <option value="chapeau">Chapeau</option>
             <option value="chapeauinverse">Chapeau Inversé</option>
-            <option value="vaguecois">Vague Croissante</option>
+            <option value="vaguecrois">Vague Croissante</option>
             <option value="creation1">Création 1</option>
           </select>
         </div>
@@ -44,7 +44,7 @@
         <div class="lampes">
            <label for="email">Amplitude de l'inclinaison: </label>
             <p class="range-field">
-              <input type="range" id="amplitudeIncl" min="0" max="200" value="10" />
+              <input type="range" id="amplitudeIncl" min="-50" max="120" value="10" />
             </p>
         </div>
         <div class="lampes">
@@ -67,13 +67,14 @@
             <option value="chenille">Chenille</option>
           </select>
         </div>
-      </form>
-      <div class="periode">
+        <div class="periode">
            <label for="email">Periode: </label>
             <p class="range-field">
               <input type="range" id="periode" min="0" max="20" value="10" />
             </p>
         </div>
+      </form>
+      
 
     </div>
     <div class="border-map col s9 ">
