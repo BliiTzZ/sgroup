@@ -49,6 +49,11 @@
               <input type="range" id="vitessemouv" min="0" max="20" value="10" />
             </p>
         </div>
+
+        <div class="colors">
+        <label for="colorId" value="#bacc2f">couleur</label>
+        <input id="colorId" type="color">
+        </div>
         <h5>Intensité</h5>
         <div class="type">
           <label for="name">Schema lumineux: </label>
@@ -78,12 +83,12 @@
     <div class="" style="flex:1"></div>
     <div id="groundBox"></div>
     </div>
-    
+
 
   </div>
 </div>
 
 <script language="javascript" type="text/javascript">
-    
+
 
 </script>

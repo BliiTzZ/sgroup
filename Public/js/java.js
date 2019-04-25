@@ -11,8 +11,11 @@ $("form input").on('change',()=>{
     nbLampes: $("#nbLampes").val(),
     amplitudeIncl: $("#amplitudeIncl").val(),
     vitessemouv: $("#vitessemouv").val()/10,
+    color:$("#colorId").val()
+    vitessemouv: $("#vitessemouv").val()/10,
     schema: $("#schema").val()
   }
+  console.log(userParams.vitessemouv);
   let x=0
   window.clearInterval(interval);
   $("#lightbox").html();
@@ -159,12 +162,14 @@ function render(time, userParams){
   let params= getParams(time, i, userParams)
    html+=`<div class="spotContainer">
    <div class="fil" style="top:${params.distanceTop}px"></div>
-   <div class="spot" style="top:${params.distanceTop}px;opacity:${params.intensity};"></div>
+   <div class="spot" style="top:${params.distanceTop}px;opacity:${params.intensity};background-color:${userParams.color};-webkit-box-shadow: 0px 0px 43px 5px ${userParams.color};
+   -moz-box-shadow: 0px 0px 43px 5px ${userParams.color};
+   box-shadow: 0px 0px 43px 5px ${userParams.color};"></div>
    </div> `
 let shadow = (params.distanceTop+100)/3
    groudBoxHtml+=`<div class="groundBoxContainer">
-   <div class="groundBoxItem" style="box-shadow: 0px 0px 40px ${(shadow)}px  rgba(255,255,97,0.5);-webkit-box-shadow: 0px 0px 40px ${(shadow)}px rgba(255,255,97,1);
--moz-box-shadow: 0px 0px 40px ${(shadow)}px  rgba(255,255,97,1);opacity:${params.intensity};background-color:red"></div>
+   <div class="groundBoxItem" style="box-shadow: 0px 0px 40px ${(shadow)}px  ${userParams.color};-webkit-box-shadow: 0px 0px 40px ${(shadow)}px ${userParams.color};
+-moz-box-shadow: 0px 0px 40px ${(shadow)}px  ${userParams.color};opacity:${params.intensity};background-color:${userParams.color}"></div>
    </div> `
  }
 
