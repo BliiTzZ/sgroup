@@ -10,7 +10,7 @@ $("form input").on('change',()=>{
     decalage: $("#decalage").val(),
     nbLampes: $("#nbLampes").val(),
     amplitudeIncl: $("#amplitudeIncl").val(),
-    vitessemouv: $("#vitessemouv").val()/10,
+    vitessemouv: $("#vitessemouv").val()*0.5,
     color:$("#colorId").val()
   }
   
@@ -53,7 +53,7 @@ let intensity={
 });
 let animations={
   Sin(time,index,userParams) {
-    return userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12)
+    return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
   },
   Incl(time, index, userParams) {
     console.log('in')
@@ -63,18 +63,18 @@ let animations={
     return Math.abs(userParams.amplitudeIncl*index/10-userParams.amplitudeIncl/2 + 5)
   },
   Crois(time, index, userParams){
-    return userParams.amplitude*index/10*Math.sin(time-index*Math.PI*userParams.decalage/12)
+    return userParams.amplitude*index/10*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
   },
   Papillon(time,index,userParams){
     if(index<6){
-      return userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12)
+      return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
     }    
     else{
-      return (userParams.amplitude*Math.sin(time+index*Math.PI*userParams.decalage/12))
+      return (userParams.amplitude*Math.sin(time*userParams.vitessemouv+index*Math.PI*userParams.decalage/12))
     }
   },
   SinIncl(time, index,userParams){
-    return (userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12))+(userParams.amplitudeIncl*index/10)
+    return (userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12))+(userParams.amplitudeIncl*index/10)
   }
 }
 function getParams(time,index, userParams) {

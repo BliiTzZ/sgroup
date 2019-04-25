@@ -44,13 +44,13 @@
         <div class="lampes">
            <label for="email">Vitesse du mouvement: </label>
             <p class="range-field">
-              <input type="range" id="vitessemouv" min="0" max="20" value="10" />
+              <input type="range" id="vitessemouv" min="0" max="10" value="5" />
             </p>
         </div>
 
         <div class="colors">
-        <label for="colorId" value="#bacc2f">couleur</label>
-        <input id="colorId" type="color">
+        <label for="colorId">couleur</label>
+        <input id="colorId" value="#cc9595" type="color">
         </div>
       </form>
 
