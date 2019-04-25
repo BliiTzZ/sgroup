@@ -12,7 +12,6 @@ $("form input").on('change',()=>{
     amplitudeIncl: $("#amplitudeIncl").val(),
     vitessemouv: $("#vitessemouv").val()*0.5,
     color:$("#colorId").val(),
-    vitessemouv: $("#vitessemouv").val()/10,
     schema: $("#schema").val()
   }
   console.log(userParams.vitessemouv);
