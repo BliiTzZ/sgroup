@@ -12,9 +12,9 @@ $("form input").on('change',()=>{
     amplitudeIncl: $("#amplitudeIncl").val(),
     vitessemouv: $("#vitessemouv").val()*0.5,
     color:$("#colorId").val(),
-    schema: $("#schema").val()
+    schema: $("#schema").val(),
+    periode: $("#periode").val()
   }
-  console.log(userParams.vitessemouv);
   let x=0
   window.clearInterval(interval);
   $("#lightbox").html();
@@ -26,11 +26,12 @@ $("form input").on('change',()=>{
 
 let intensity={
   Sin(time, index, userParams){
-    return (Math.sin(time-index*Math.PI/6)*0.5 +0.5)
+    console.log(userParams.periode)
+    return (Math.sin(time-index*Math.PI*userParams.periode/12)*0.5 +0.5)
   },
   Strobo(time, index, userParams){
 
-    if((time%userParams.periode)<(userParams.periode/2)){
+    if((time%userParams.periode*0.1)<(userParams.periode*0.1/2)){
       return 1
     }else{
       return 0
@@ -38,22 +39,25 @@ let intensity={
   },
 
   Chenille(time, index,userParams) {
-    if(Math.trunc((userParams.periode*(time/1000)+index/10))%2==0){
+    if(Math.trunc((userParams.periode*(time/2000)+index/10))%2==0){
     return 0
     }else{
       return 1
     }
   },
   AlternatStrobo(time, index, userParams){
-    if((time%userParams.periode)<(userParams.periode/2)){
+    console.log("in")
+    if((time%userParams.periode*0.1)<(userParams.periode*0.1/2)){
+      console.log("haut")
       return index%2 ==0 ? 1 : 0
     }else{
+      console.log("bas")
       return index%2 ==0 ? 0 : 1
     }
   }
 }
 
-getIntensity =function(time,index, userParams) {
+function getIntensity(time,index, userParams) {
   switch(userParams.schema) {
     case "stroboscope":
       return intensity.Strobo(time, index,userParams)
@@ -64,7 +68,7 @@ getIntensity =function(time,index, userParams) {
     case "chenille":
     return intensity.Chenille(time, index,userParams)
     break;
-    case "alternatstrobo":
+    case "Alternatstrobo":
       return intensity.AlternatStrobo(time, index,userParams)
     break;
     default:
