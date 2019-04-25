@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-  $('select').formSelect(); 
+  $('select').formSelect();
 
   let interval
 $("form input").on('change',()=>{
@@ -11,7 +11,7 @@ $("form input").on('change',()=>{
     nbLampes: $("#nbLampes").val(),
     amplitudeIncl: $("#amplitudeIncl").val(),
     vitessemouv: $("#vitessemouv").val()*0.5,
-    color:$("#colorId").val()
+    color:$("#colorId").val(),
     vitessemouv: $("#vitessemouv").val()/10,
     schema: $("#schema").val()
   }
@@ -30,7 +30,7 @@ let intensity={
     return (Math.sin(time-index*Math.PI/6)*0.5 +0.5)
   },
   Strobo(time, index, userParams){
-   
+
     if((time%userParams.periode)<(userParams.periode/2)){
       return 1
     }else{
@@ -48,13 +48,13 @@ let intensity={
   AlternatStrobo(time, index, userParams){
     if((time%userParams.periode)<(userParams.periode/2)){
       return index%2 ==0 ? 1 : 0
-    }else{ 
+    }else{
       return index%2 ==0 ? 0 : 1
     }
   }
 }
 
-getIntensity(time,index, userParams) {
+getIntensity =function(time,index, userParams) {
   switch(userParams.schema) {
     case "stroboscope":
       return intensity.Strobo(time, index,userParams)
@@ -68,7 +68,7 @@ getIntensity(time,index, userParams) {
     case "alternatstrobo":
       return intensity.AlternatStrobo(time, index,userParams)
     break;
-    default: 
+    default:
     return {}
     break;
   }
@@ -93,7 +93,7 @@ let animations={
   Papillon(time,index,userParams){
     if(index<6){
       return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
-    }    
+    }
     else{
       return (userParams.amplitude*Math.sin(time*userParams.vitessemouv+index*Math.PI*userParams.decalage/12))
     }
@@ -147,11 +147,11 @@ function getParams(time,index, userParams) {
         intensity:getIntensity(time,index, userParams)
       };
     break;
-    default: 
+    default:
     return {}
     break;
   }
- 
+
 }
 
 

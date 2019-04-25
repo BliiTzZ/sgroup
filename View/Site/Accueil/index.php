@@ -6,11 +6,15 @@
     <div class="col s3 formulaire">
       <h5>Mouvements</h5>
       <form method="POST">
+      <div class="colors row">
+        <label for="colorId">couleur</label>
+        <input id="colorId" value="#cc9595" type="color">
+        </div>
         <div class="type">
           <label for="name">Type de figure: </label>
           <select id="type" name="question">
             <option value="" disabled hidden selected class="size-9">SELECTIONNER</option>
-            <option value="vague">Vague</option>
+            <option value="vague" selected>Vague</option>
             <option value="inclinaison">inclinaison</option>
             <option value="papillon">Papillon</option>
             <option value="chapeau">Chapeau</option>
@@ -50,16 +54,13 @@
             </p>
         </div>
 
-        <div class="colors">
-        <label for="colorId">couleur</label>
-        <input id="colorId" value="#cc9595" type="color">
-        </div>
+       
         <h5>Intensité</h5>
         <div class="type">
           <label for="name">Schema lumineux: </label>
           <select id="schema" name="question">
             <option value="" disabled hidden selected class="size-9">SELECTIONNER</option>
-            <option value="constant">Constant</option>
+            <option value="constant" selected>Constant</option>
             <option value="vaguelum">Vague lumineuse</option>
             <option value="stroboscope">Stroboscope</option>
             <option value="Alternatstrobo">Stroboscope Alterné</option>
