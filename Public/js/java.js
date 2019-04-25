@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-  $('select').formSelect(); 
+  $('select').formSelect();
 
   let interval
 $("form input").on('change',()=>{
@@ -10,6 +10,8 @@ $("form input").on('change',()=>{
     decalage: $("#decalage").val(),
     nbLampes: $("#nbLampes").val(),
     amplitudeIncl: $("#amplitudeIncl").val(),
+    vitessemouv: $("#vitessemouv").val()*0.5,
+    color:$("#colorId").val(),
     vitessemouv: $("#vitessemouv").val()/10,
     color:$("#colorId").val()
     schema: $("#schema").val()
@@ -29,7 +31,7 @@ let intensity={
     return (Math.sin(time-index*Math.PI/6)*0.5 +0.5)
   },
   Strobo(time, index, userParams){
-   
+
     if((time%userParams.periode)<(userParams.periode/2)){
       return 1
     }else{
@@ -47,13 +49,13 @@ let intensity={
   AlternatStrobo(time, index, userParams){
     if((time%userParams.periode)<(userParams.periode/2)){
       return index%2 ==0 ? 1 : 0
-    }else{ 
+    }else{
       return index%2 ==0 ? 0 : 1
     }
   }
 }
 
-getIntensity(time,index, userParams) {
+getIntensity =function(time,index, userParams) {
   switch(userParams.schema) {
     case "stroboscope":
       return intensity.Strobo(time, index,userParams)
@@ -67,14 +69,14 @@ getIntensity(time,index, userParams) {
     case "alternatstrobo":
       return intensity.AlternatStrobo(time, index,userParams)
     break;
-    default: 
+    default:
     return {}
     break;
   }
 };
 let animations={
   Sin(time,index,userParams) {
-    return userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12)
+    return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
   },
   Incl(time, index, userParams) {
     console.log('in')
@@ -87,18 +89,18 @@ let animations={
     return -Math.abs(userParams.amplitudeIncl*index/10-userParams.amplitudeIncl/2 + 5)
   },
   Crois(time, index, userParams){
-    return userParams.amplitude*index/10*Math.sin(time-index*Math.PI*userParams.decalage/12)
+    return userParams.amplitude*index/10*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
   },
   Papillon(time,index,userParams){
     if(index<6){
-      return userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12)
-    }    
+      return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
+    }
     else{
-      return (userParams.amplitude*Math.sin(time+index*Math.PI*userParams.decalage/12))
+      return (userParams.amplitude*Math.sin(time*userParams.vitessemouv+index*Math.PI*userParams.decalage/12))
     }
   },
   SinIncl(time, index,userParams){
-    return (userParams.amplitude*Math.sin(time-index*Math.PI*userParams.decalage/12))+(userParams.amplitudeIncl*index/10)
+    return (userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12))+(userParams.amplitudeIncl*index/10)
   }
 }
 
@@ -146,11 +148,11 @@ function getParams(time,index, userParams) {
         intensity:getIntensity(time,index, userParams)
       };
     break;
-    default: 
+    default:
     return {}
     break;
   }
- 
+
 }
 
 
