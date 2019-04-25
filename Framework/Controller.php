@@ -83,8 +83,8 @@ abstract class Controller
         $controller = str_replace("Controller", "", $classController);
 
         // Instanciation et génération de la vueF
-        $view = new View($actionView, $controller, $from);
-        $view->generate($dataView, $from);
+        $view = new View($actionView, $controller);
+        $view->generate($dataView);
     }
 
     /**

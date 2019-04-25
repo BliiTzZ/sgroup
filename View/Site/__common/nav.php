@@ -153,7 +153,7 @@
     --->
     <?php } ?>
 </ul>
-<div class="navbar-fixed">
+<div class="navbar">
     <nav class="navigation-menu semi-transparent z-depth-0">
         <div class="nav-wrapper margin_side">
             <a data-target="mobile-demo" class="sidenav-trigger open-burger grey-text text-darken-1"><i class="material-icons">menu</i></a>
