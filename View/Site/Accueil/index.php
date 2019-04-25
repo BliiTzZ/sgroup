@@ -47,6 +47,11 @@
               <input type="range" id="vitessemouv" min="0" max="20" value="10" />
             </p>
         </div>
+
+        <div class="colors">
+        <label for="colorId" value="#bacc2f">couleur</label>
+        <input id="colorId" type="color">
+        </div>
       </form>
 
     </div>
@@ -58,12 +63,12 @@
     <div class="" style="flex:1"></div>
     <div id="groundBox"></div>
     </div>
-    
+
 
   </div>
 </div>
 
 <script language="javascript" type="text/javascript">
-    
+
 
 </script>
