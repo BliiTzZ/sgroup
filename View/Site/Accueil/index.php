@@ -4,6 +4,7 @@
 
   <div class="row margin-top-50 map">
     <div class="col s3 formulaire">
+      <h5>Mouvements</h5>
       <form method="POST">
         <div class="type">
           <label for="name">Type de figure: </label>
@@ -13,6 +14,7 @@
             <option value="inclinaison">inclinaison</option>
             <option value="papillon">Papillon</option>
             <option value="chapeau">Chapeau</option>
+            <option value="chapeauinverse">Chapeau Inversé</option>
             <option value="vaguecois">Vague Croissante</option>
             <option value="creation1">Création 1</option>
           </select>
@@ -47,7 +49,25 @@
               <input type="range" id="vitessemouv" min="0" max="20" value="10" />
             </p>
         </div>
+        <h5>Intensité</h5>
+        <div class="type">
+          <label for="name">Schema lumineux: </label>
+          <select id="schema" name="question">
+            <option value="" disabled hidden selected class="size-9">SELECTIONNER</option>
+            <option value="constant">Constant</option>
+            <option value="vaguelum">Vague lumineuse</option>
+            <option value="stroboscope">Stroboscope</option>
+            <option value="Alternatstrobo">Stroboscope Alterné</option>
+            <option value="chenille">Chenille</option>
+          </select>
+        </div>
       </form>
+      <div class="periode">
+           <label for="email">Periode: </label>
+            <p class="range-field">
+              <input type="range" id="periode" min="0" max="20" value="10" />
+            </p>
+        </div>
 
     </div>
     <div class="border-map col s9 ">
