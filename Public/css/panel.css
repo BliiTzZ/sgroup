@@ -191,7 +191,6 @@ tr {
   position: absolute;
   left: 32%;
   top: 0px;
-  border-radius: 2px;
   height: 120px;
   width: 120px;
   border-radius: 50%;
@@ -293,7 +292,7 @@ tr {
 }
 
 td, th {
-  padding: 5px 5px!important;
+  padding: 5px!important;
 }
 .check {
   position: relative!important;

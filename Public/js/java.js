@@ -75,7 +75,7 @@ function getIntensity(time,index, userParams) {
     return {}
     break;
   }
-};
+}
 let animations={
   Sin(time,index,userParams) {
     return userParams.amplitude*Math.sin(time*userParams.vitessemouv-index*Math.PI*userParams.decalage/12)
